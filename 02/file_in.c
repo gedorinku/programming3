@@ -7,16 +7,10 @@ int load_dicdata(char* filename, char eng[][256], char jpn[][256]) {
 
     if (file == NULL) return -1;
 
-    int count = 0;
-    char s[256];
-
-    while (fscanf(file, " %s", s) != EOF) {
-        strcpy(eng[count], s);
-        fscanf(file, " %s", s);
-        strcpy(jpn[count], s);
+    int count = 0; 
+    while (fscanf(file, " %s %s", eng[count], jpn[count]) != EOF) {
         count++;
     }
-
     fclose(file);
     
     return count;
