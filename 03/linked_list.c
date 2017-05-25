@@ -18,13 +18,3 @@ void print_list(struct node *p) {
     print_list(p->next);
 }
 
-void init_node(
-    struct node *p,
-    char eng[256],
-    char jpn[256],
-    struct node *next) {
-    strcpy(p->eng, eng);
-    strcpy(p->jpn, jpn);
-    p->next = next;
-}
-

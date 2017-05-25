@@ -1,15 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "01/menu.h"
+#include "02/file_in.h"
+#include "03/node.h"
+#include "03/linked_list.h"
+#include "04/linked_list2.h"
 
-int print_menu();
 
-int load_dicdata(char *filename, char eng[][256], char jpn[][256]);
+struct node* create_list(char eng[][256], char jpn[][256], int count) {
+    struct node *init = create_node("", "");
+    int i;
 
-void print_array(char a[][256], int);
+    for (i = 0; i < count; ++i) {
+        struct node *p = create_node(eng[i], jpn[i]);
+        concat_list(p, init);
+    }
+
+    return init;
+}
 
 int main() {
     char eng[20][256], jpn[20][256];
     int count = -1;
+    struct node *list = NULL;
 
     while (1) {
         int menu_num = print_menu();
@@ -36,6 +49,24 @@ int main() {
                 print_array(eng, count);
                 print_array(jpn, count);
                 break;
+
+            case 3:
+                if (count < 0) {
+                    puts("保存に失敗");
+                    break;
+                }
+                destory_list(list);
+                list = create_list(eng, jpn, count);
+                break;
+
+            case 4:
+                if (list == NULL) {
+                    puts("標準出力する連結リストは存在しない");
+                    break;
+                }
+                print_list(list->next);
+                break;
+
             case 9:
                 exit(0);
         }
