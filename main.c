@@ -5,6 +5,7 @@
 #include "03/node.h"
 #include "03/linked_list.h"
 #include "04/linked_list2.h"
+#include "05/tree.h"
 
 
 struct node* create_list(char eng[][256], char jpn[][256], int count) {
@@ -19,10 +20,29 @@ struct node* create_list(char eng[][256], char jpn[][256], int count) {
     return init;
 }
 
+struct node2* create_tree(char eng[][256], char jpn[][256], int count) {
+    struct node2 *init;
+    int i;
+    if (count < 0) {
+        puts("保存に失敗");
+        return NULL;
+    }
+
+    init = create_node2("", "");
+    for (i = 0; i < count; ++i) {
+        struct node2 *p = create_node2(eng[i], jpn[i]);
+        insert_tree(p, init);
+    }
+
+    return init;
+}
+    
+
 int main() {
     char eng[20][256], jpn[20][256];
     int count = -1;
     struct node *list = NULL;
+    struct node2 *tree = NULL;
 
     while (1) {
         int menu_num = print_menu();
@@ -65,6 +85,18 @@ int main() {
                     break;
                 }
                 print_list(list->next);
+                break;
+
+            case 5:
+                tree = create_tree(eng, jpn, count);
+                break;
+
+            case 6:
+                if (tree == NULL) {
+                    puts("標準出力する二分木は存在しない");
+                    break;
+                }
+                print_tree(tree);
                 break;
 
             case 9:

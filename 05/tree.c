@@ -1,7 +1,7 @@
-#include <memory.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "node2.h"
+#include "tree.h"
 
 struct node2 *create_node2(char *eng, char *jpn) {
     struct node2 *p = (struct node2*) malloc(sizeof(struct node2));

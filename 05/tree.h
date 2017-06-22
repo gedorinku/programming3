@@ -3,7 +3,7 @@ struct node2 {
     char jpn[256];
     struct node2 *right;
     struct node2 *left;
-}
+};
 
 
 struct node2 *create_node2(char *eng, char *jpn);
