@@ -42,7 +42,7 @@ int main() {
     char eng[20][256], jpn[20][256];
     int count = -1;
     struct node *list = NULL;
-    struct node2 *tree = NULL;
+    struct node2 *root = NULL;
 
     while (1) {
         int menu_num = print_menu();
@@ -88,15 +88,19 @@ int main() {
                 break;
 
             case 5:
-                tree = create_tree(eng, jpn, count);
+                root = create_tree(eng, jpn, count);
                 break;
 
             case 6:
-                if (tree == NULL) {
+                if (root == NULL) {
                     puts("標準出力する二分木は存在しない");
                     break;
                 }
-                print_tree(tree);
+                print_tree(root);
+                break;
+
+            case 8:
+                print_tree_sorted(root);
                 break;
 
             case 9:

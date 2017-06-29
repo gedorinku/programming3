@@ -44,3 +44,13 @@ void insert_tree(struct node2 *p, struct node2 *tree) {
     insert_tree(p, tree->right);
 }
 
+void print_tree_sorted(struct node2 *p) {
+    if (p->left != NULL) {
+        print_tree_sorted(p->left);
+    }
+    printf("%s\t %s\t\n", p->eng, p->jpn);
+    if (p->right != NULL) {
+        print_tree_sorted(p->right);
+    }
+}
+

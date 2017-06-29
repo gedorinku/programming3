@@ -12,3 +12,5 @@ void print_tree(struct node2 *p);
 
 void insert_tree(struct node2 *p, struct node2 *tree);
 
+void print_tree_sorted(struct node2 *p);
+
