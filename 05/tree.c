@@ -22,10 +22,25 @@ void print_tree(struct node2 *p) {
 }
 
 void insert_tree(struct node2 *p, struct node2 *tree) {
-    if (tree->left != NULL) {
+    int res = strcmp(p-> eng, tree->eng);
+    if (res == 0) {
+        return;
+    }
+    if (res < 0) {
+        printf("%sの左に%sを追加\n", tree->eng, p->eng);
+        if (tree->left == NULL) {
+            tree->left = p;
+            return;
+        }
         insert_tree(p, tree->left);
         return;
     }
-    tree->left = p;
+
+    printf("%sの右に%sを追加\n", tree->eng, p->eng);
+    if (tree->right == NULL) {
+        tree->right = p;
+        return;
+    }
+    insert_tree(p, tree->right);
 }
 
