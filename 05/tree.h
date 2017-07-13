@@ -1,3 +1,6 @@
+#ifndef INCLUDED_TREE
+#define INCLUDED_TREE
+
 struct node2 {
     char eng[256];
     char jpn[256];
@@ -13,4 +16,6 @@ void print_tree(struct node2 *p);
 void insert_tree(struct node2 *p, struct node2 *tree);
 
 void print_tree_sorted(struct node2 *p);
+
+#endif
 

@@ -2,8 +2,8 @@
 # 統合
 #
 
-1.out:main.o menu.o file_in.o linked_list.o linked_list2.o tree.o
-	gcc -o 1.out main.o menu.o file_in.o linked_list.o linked_list2.o tree.o
+1.out:main.o menu.o file_in.o linked_list.o linked_list2.o tree.o file_out.o
+	gcc -o 1.out main.o menu.o file_in.o linked_list.o linked_list2.o tree.o file_out.o
 
 main.o:main.c
 	gcc -c main.c
@@ -22,6 +22,9 @@ linked_list2.o:04/linked_list2.c
 
 tree.o:05/tree.c
 	gcc -c 05/tree.c
+
+file_out.o:06/file_out.c
+	gcc -c 06/file_out.c
 
 clear:
 	rm -f *~

@@ -1,3 +1,6 @@
+#ifndef INCLUDED_NODE
+#define INCLUDED_NODE
+
 #define NODE_WORD_LENGTH 256
 
 struct node {
@@ -5,4 +8,6 @@ struct node {
     char jpn[NODE_WORD_LENGTH];
     struct node *next;
 };
+
+#endif
 

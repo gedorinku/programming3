@@ -6,7 +6,7 @@
 #include "03/linked_list.h"
 #include "04/linked_list2.h"
 #include "05/tree.h"
-
+#include "06/file_out.h"
 
 struct node* create_list(char eng[][256], char jpn[][256], int count) {
     struct node *init = create_node("", "");
@@ -97,6 +97,15 @@ int main() {
                     break;
                 }
                 print_tree(root);
+                break;
+
+            case 7:
+                store_dicdata("out1.txt", eng, jpn, count);
+                puts("配列をファイルに保存しました。");
+                store_list("out2.txt", list->next);
+                puts("連結リストをファイルに保存しました。");
+                store_tree("out3.txt", root);
+                puts("二分木をファイルに保存しました。");
                 break;
 
             case 8:

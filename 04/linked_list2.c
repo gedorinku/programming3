@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include "node.h"
+#include "linked_list2.h"
 
 struct node* create_node(char *eng, char *jpn) {
     struct node* p = (struct node*)malloc(sizeof(struct node));
