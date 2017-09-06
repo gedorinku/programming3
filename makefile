@@ -3,7 +3,7 @@
 #
 
 1.out:main.o menu.o file_in.o linked_list.o linked_list2.o tree.o file_out.o mora.o morabigram.o word.o dictionaryReader.o dictionary.o debug.o
-	gcc -O2 -std=gnu99 -o 1.out main.o menu.o file_in.o linked_list.o linked_list2.o tree.o file_out.o mora.o morabigram.o word.o dictionaryReader.o dictionary.o debug.o
+	gcc -lm -O2 -std=gnu99 -o 1.out main.o menu.o file_in.o linked_list.o linked_list2.o tree.o file_out.o mora.o morabigram.o word.o dictionaryReader.o dictionary.o debug.o
 
 main.o:main.c
 	gcc -O2 -std=gnu99 -c main.c
