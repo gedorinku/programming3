@@ -74,7 +74,7 @@ void mergeSortWords(size_t count, Word *words) {
         relations[i].index = i;
         relations[i].evaluation = words[i].evaluation;
     }
-    mergesort(relations, count, sizeof(Relation), (int(*)(const void*, const void*))relationCmp);
+    qsort(relations, count, sizeof(Relation), (int(*)(const void*, const void*))relationCmp);
 
     Word *temp = (Word*)malloc(sizeof(Word) * count);
     for (int i = 0; i < count; ++i) {
