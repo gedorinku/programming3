@@ -7,6 +7,7 @@
 #include "04/linked_list2.h"
 #include "05/tree.h"
 #include "06/file_out.h"
+#include "hayakuchi/debug.h"
 
 struct node* create_list(char eng[][256], char jpn[][256], int count) {
     struct node *init = create_node("", "");
@@ -36,7 +37,7 @@ struct node2* create_tree(char eng[][256], char jpn[][256], int count) {
 
     return init;
 }
-    
+
 
 int main() {
     char eng[20][256], jpn[20][256];
@@ -46,7 +47,7 @@ int main() {
 
     while (1) {
         int menu_num = print_menu();
-        
+
         if (menu_num == 9) {
             exit(0);
         }
@@ -109,7 +110,7 @@ int main() {
                 break;
 
             case 8:
-                print_tree_sorted(root);
+                PrintWords();
                 break;
 
             case 9:
