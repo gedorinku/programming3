@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "word.h"
 #include "mora.h"
@@ -62,7 +63,7 @@ double evaluateWord(const char *roma) {
         }
 
         for (int j = i + 1; ; ++j) {
-            if (!isVowel(roma[j]) && !(roma[i] == 'n' && roma[j] == '\'')) continue;
+            if (!isVowel(roma[j]) && !(roma[j] == 'n' && roma[j + 1] == '\'') && roma[j] != '\0') continue;
 
             for (int k = 0; k <= j - i; ++k) {
                 moras[count].roma[k] = roma[i + k];
